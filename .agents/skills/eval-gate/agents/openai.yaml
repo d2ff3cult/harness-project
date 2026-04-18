@@ -1,0 +1,4 @@
+name: eval-gate
+description: Build executable EvalSpec and report expectations from acceptance and risks.
+version: 0.1.0
+schemaVersion: 1.0.0

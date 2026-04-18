@@ -1,0 +1,4 @@
+name: figma-to-design-context
+description: Convert figma extraction output into strict DesignContextSpec json.
+version: 0.1.0
+schemaVersion: 1.0.0

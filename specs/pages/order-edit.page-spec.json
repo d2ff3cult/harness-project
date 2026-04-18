@@ -1,0 +1,30 @@
+{
+  "id": "order-edit",
+  "route": "/orders/:id/edit",
+  "datasource": {
+    "api": "GET /api/orders/{id}",
+    "query": ["id"]
+  },
+  "permissions": {
+    "save": "order:edit",
+    "export": "order:export"
+  },
+  "ui": {
+    "type": "form",
+    "toolbarActions": ["save", "cancel"]
+  },
+  "rules": [
+    {
+      "name": "syncServiceTransport",
+      "expr": "serviceSelectionChanged",
+      "effect": "syncTransportRecords"
+    }
+  ],
+  "states": ["loading", "ready", "saving", "error"],
+  "acceptance": [
+    "create_order_generates_placeholder_records",
+    "cancel_service_with_confirm_deletes_linked_records",
+    "delete_service_origin_record_with_confirm_unchecks_service"
+  ],
+  "unknowns": []
+}

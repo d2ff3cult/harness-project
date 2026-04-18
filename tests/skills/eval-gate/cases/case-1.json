@@ -1,0 +1,24 @@
+{
+  "evalSpec": {
+    "scope": "eval-gate-case-1",
+    "commands": ["pnpm spec:validate", "pnpm design:validate"],
+    "thresholds": {
+      "maxDiffPixelRatio": 0.003,
+      "unknowns": 0
+    },
+    "blockRules": ["any_failed_command", "unknowns_non_empty"],
+    "requiredReports": ["manifest", "eval-report"],
+    "testCases": [
+      {
+        "id": "E-1",
+        "given": "input available",
+        "when": "run eval",
+        "then": "gate pass"
+      }
+    ],
+    "unknowns": []
+  },
+  "gateConfig": {
+    "strict": true
+  }
+}

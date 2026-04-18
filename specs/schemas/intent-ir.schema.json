@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://harness-project/specs/schemas/intent-ir.schema.json",
+  "title": "IntentIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "intentId",
+    "page",
+    "actors",
+    "actions",
+    "rules",
+    "states",
+    "api",
+    "unknowns"
+  ],
+  "properties": {
+    "intentId": { "type": "string", "minLength": 1 },
+    "page": { "type": "string", "minLength": 1 },
+    "actors": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "when", "then"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "when": { "type": "string", "minLength": 1 },
+          "then": { "type": "string", "minLength": 1 },
+          "confirmText": { "type": "string", "minLength": 1 },
+          "onConfirm": { "type": "string", "minLength": 1 },
+          "onCancel": { "type": "string", "minLength": 1 }
+        },
+        "allOf": [
+          {
+            "if": { "required": ["confirmText"] },
+            "then": { "required": ["onConfirm", "onCancel"] }
+          }
+        ]
+      }
+    },
+    "states": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "endpoint"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+        },
+        "endpoint": { "type": "string", "pattern": "^/" },
+        "pagination": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pageSize"],
+          "properties": {
+            "pageSize": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "featureId": "sample-contract-fail",
+  "entities": {
+    "sample": {
+      "id": "string"
+    }
+  },
+  "transitions": [
+    {
+      "id": "T1",
+      "when": "save.click",
+      "onConfirm": ["save"],
+      "sourceScope": "SERVICE_INFO"
+    }
+  ],
+  "invariants": ["id must be unique"],
+  "unknowns": []
+}

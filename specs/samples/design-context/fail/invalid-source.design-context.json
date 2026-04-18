@@ -1,0 +1,25 @@
+{
+  "pageId": "sample-design-fail-2",
+  "figmaNodeRefs": ["1:1"],
+  "layoutTree": {
+    "type": "Page",
+    "children": []
+  },
+  "componentMappings": [
+    {
+      "figmaNode": "1:1",
+      "component": "SampleCard",
+      "source": "THIRD_PARTY"
+    }
+  ],
+  "designTokens": ["color.text.primary"],
+  "a11yRequirements": ["button has aria-label"],
+  "interactionModel": [
+    {
+      "state": "ready",
+      "expectation": "card visible"
+    }
+  ],
+  "knownRisks": [],
+  "unknowns": []
+}

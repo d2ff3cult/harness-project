@@ -1,0 +1,18 @@
+{
+  "id": "sample-page-pass",
+  "route": "/sample",
+  "datasource": {
+    "api": "GET /api/sample",
+    "query": ["page"]
+  },
+  "permissions": {
+    "view": "sample:view"
+  },
+  "ui": {
+    "type": "table",
+    "columns": ["id", "name"]
+  },
+  "states": ["loading", "ready"],
+  "acceptance": ["table renders"],
+  "unknowns": []
+}

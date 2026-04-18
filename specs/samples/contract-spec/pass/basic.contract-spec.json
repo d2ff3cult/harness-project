@@ -1,0 +1,19 @@
+{
+  "featureId": "sample-contract-pass",
+  "entities": {
+    "sample": {
+      "id": "string"
+    }
+  },
+  "transitions": [
+    {
+      "id": "T1",
+      "when": "save.click",
+      "onConfirm": ["save"],
+      "onCancel": ["no-op"],
+      "sourceScope": "SERVICE_INFO"
+    }
+  ],
+  "invariants": ["id must be unique"],
+  "unknowns": []
+}

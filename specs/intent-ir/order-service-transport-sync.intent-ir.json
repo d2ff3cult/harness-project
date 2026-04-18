@@ -1,0 +1,38 @@
+{
+  "intentId": "order-service-transport-sync",
+  "page": "order-edit",
+  "actors": ["operator"],
+  "actions": ["create_order", "save_service_info", "delete_transport_record"],
+  "rules": [
+    {
+      "id": "R1",
+      "when": "order.created",
+      "then": "create placeholder transport record for each selected service"
+    },
+    {
+      "id": "R2",
+      "when": "service_info.save && service deselected",
+      "then": "delete linked transport records",
+      "confirmText": "取消该服务后，系统将在运输信息中删除对应的记录，请确认",
+      "onConfirm": "delete linked records",
+      "onCancel": "restore selection"
+    },
+    {
+      "id": "R3",
+      "when": "transport_info.delete && source==SERVICE_INFO",
+      "then": "uncheck linked service",
+      "confirmText": "删除该行记录，系统将在服务信息中取消对应的服务，请确认",
+      "onConfirm": "uncheck service",
+      "onCancel": "cancel delete"
+    }
+  ],
+  "states": ["loading", "ready", "saving", "error"],
+  "api": {
+    "method": "POST",
+    "endpoint": "/api/orders/service-transport-sync",
+    "pagination": {
+      "pageSize": 20
+    }
+  },
+  "unknowns": []
+}

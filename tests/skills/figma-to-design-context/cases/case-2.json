@@ -1,0 +1,28 @@
+{
+  "designContext": {
+    "pageId": "figma-case-2",
+    "figmaNodeRefs": ["2:1"],
+    "layoutTree": {
+      "type": "Page",
+      "children": []
+    },
+    "componentMappings": [
+      {
+        "figmaNode": "2:1",
+        "component": "Card2",
+        "source": "DESIGN_SYSTEM",
+        "confidence": 0.95
+      }
+    ],
+    "designTokens": ["color.text.primary"],
+    "a11yRequirements": ["aria-label exists"],
+    "interactionModel": [
+      {
+        "state": "ready",
+        "expectation": "rendered"
+      }
+    ],
+    "knownRisks": [],
+    "unknowns": []
+  }
+}

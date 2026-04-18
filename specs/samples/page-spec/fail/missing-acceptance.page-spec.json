@@ -1,0 +1,17 @@
+{
+  "id": "sample-page-fail",
+  "route": "/sample",
+  "datasource": {
+    "api": "GET /api/sample",
+    "query": ["page"]
+  },
+  "permissions": {
+    "view": "sample:view"
+  },
+  "ui": {
+    "type": "table",
+    "columns": ["id", "name"]
+  },
+  "states": ["loading", "ready"],
+  "unknowns": []
+}

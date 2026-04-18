@@ -1,0 +1,18 @@
+{
+  "scope": "sample-eval-pass",
+  "commands": ["pnpm spec:validate"],
+  "thresholds": {
+    "maxDiffPixelRatio": 0.003
+  },
+  "blockRules": ["any_failed_command"],
+  "requiredReports": ["manifest"],
+  "testCases": [
+    {
+      "id": "TC-01",
+      "given": "sample",
+      "when": "run",
+      "then": "pass"
+    }
+  ],
+  "unknowns": []
+}

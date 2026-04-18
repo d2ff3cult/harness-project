@@ -1,0 +1,49 @@
+{
+  "scope": "golden-order-service-transport-sync",
+  "commands": [
+    "pnpm spec:validate",
+    "pnpm design:validate",
+    "pnpm skills:smoke",
+    "pnpm replay:check"
+  ],
+  "thresholds": {
+    "unknowns": 0,
+    "maxDiffPixelRatio": 0.003
+  },
+  "blockRules": [
+    "any_failed_command",
+    "unknowns_non_empty",
+    "missing_manifest_or_report"
+  ],
+  "requiredReports": [
+    "manifest",
+    "eval-report"
+  ],
+  "testCases": [
+    {
+      "id": "G-TC-01",
+      "given": "order created with selected services",
+      "when": "save order",
+      "then": "placeholder records auto-created"
+    },
+    {
+      "id": "G-TC-02",
+      "given": "service deselected",
+      "when": "confirm dialog accepted",
+      "then": "linked service-origin record deleted"
+    },
+    {
+      "id": "G-TC-03",
+      "given": "service-origin record delete dialog",
+      "when": "cancel clicked",
+      "then": "record remains and service stays selected"
+    },
+    {
+      "id": "G-TC-04",
+      "given": "transport-origin record modified",
+      "when": "save",
+      "then": "service selections unchanged"
+    }
+  ],
+  "unknowns": []
+}

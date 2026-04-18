@@ -1,0 +1,12 @@
+{
+  "intentId": "sample-intent-fail",
+  "page": "sample-page",
+  "actors": ["user"],
+  "actions": ["view"],
+  "states": ["loading", "ready"],
+  "api": {
+    "method": "GET",
+    "endpoint": "/api/sample"
+  },
+  "unknowns": []
+}

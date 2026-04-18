@@ -1,0 +1,19 @@
+{
+  "intentId": "sample-intent-pass",
+  "page": "sample-page",
+  "actors": ["user"],
+  "actions": ["view"],
+  "rules": [
+    {
+      "id": "R1",
+      "when": "page.open",
+      "then": "load data"
+    }
+  ],
+  "states": ["loading", "ready"],
+  "api": {
+    "method": "GET",
+    "endpoint": "/api/sample"
+  },
+  "unknowns": []
+}

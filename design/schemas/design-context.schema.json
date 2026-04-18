@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://harness-project/design/schemas/design-context.schema.json",
+  "title": "DesignContextSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pageId",
+    "figmaNodeRefs",
+    "layoutTree",
+    "componentMappings",
+    "designTokens",
+    "a11yRequirements",
+    "interactionModel",
+    "knownRisks",
+    "unknowns"
+  ],
+  "properties": {
+    "pageId": { "type": "string", "minLength": 1 },
+    "figmaNodeRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "layoutTree": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "children"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/layoutNode"
+          }
+        }
+      }
+    },
+    "componentMappings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["figmaNode", "component", "source"],
+        "properties": {
+          "figmaNode": { "type": "string", "minLength": 1 },
+          "component": { "type": "string", "minLength": 1 },
+          "source": {
+            "type": "string",
+            "enum": ["DESIGN_SYSTEM", "CUSTOM"]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "designTokens": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9._-]+$" }
+    },
+    "i18nCandidates": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "a11yRequirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "interactionModel": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["state", "expectation"],
+        "properties": {
+          "state": { "type": "string", "minLength": 1 },
+          "expectation": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "knownRisks": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "layoutNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "children"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/layoutNode"
+          }
+        }
+      }
+    }
+  }
+}

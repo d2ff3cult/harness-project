@@ -1,0 +1,58 @@
+{
+  "pageId": "order-edit",
+  "figmaNodeRefs": [
+    "12:34",
+    "12:35",
+    "12:36"
+  ],
+  "layoutTree": {
+    "type": "Page",
+    "children": [
+      {
+        "type": "Section",
+        "children": []
+      }
+    ]
+  },
+  "componentMappings": [
+    {
+      "figmaNode": "12:34",
+      "component": "OrderServiceSelector",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.97
+    },
+    {
+      "figmaNode": "12:35",
+      "component": "TransportRecordTable",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.95
+    }
+  ],
+  "designTokens": [
+    "color.text.primary",
+    "space.16",
+    "radius.md"
+  ],
+  "i18nCandidates": [
+    "dialog.confirm.cancel_service",
+    "dialog.confirm.delete_transport"
+  ],
+  "a11yRequirements": [
+    "dialog has aria-label",
+    "table rows have keyboard focus state"
+  ],
+  "interactionModel": [
+    {
+      "state": "confirm-dialog-open",
+      "expectation": "confirm and cancel branches are explicit"
+    },
+    {
+      "state": "save-loading",
+      "expectation": "save button shows loading and blocks duplicate submit"
+    }
+  ],
+  "knownRisks": [
+    "service and transport source linkage mismatch"
+  ],
+  "unknowns": []
+}

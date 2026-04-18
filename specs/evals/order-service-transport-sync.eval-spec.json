@@ -1,0 +1,52 @@
+{
+  "scope": "order-service-transport-sync",
+  "commands": [
+    "pnpm spec:validate",
+    "pnpm design:validate",
+    "pnpm skills:smoke"
+  ],
+  "thresholds": {
+    "maxDiffPixelRatio": 0.003,
+    "unknowns": 0
+  },
+  "blockRules": [
+    "any_failed_command",
+    "unknowns_non_empty",
+    "required_reports_missing"
+  ],
+  "requiredReports": [
+    "manifest",
+    "eval-report"
+  ],
+  "testCases": [
+    {
+      "id": "TC-01",
+      "given": "create order with selected services",
+      "when": "order saved",
+      "then": "placeholder transport records are auto-created",
+      "tags": ["golden", "sync"]
+    },
+    {
+      "id": "TC-02",
+      "given": "service deselected",
+      "when": "save and confirm dialog",
+      "then": "linked transport record is deleted",
+      "tags": ["confirm-branch"]
+    },
+    {
+      "id": "TC-03",
+      "given": "service-origin transport record",
+      "when": "delete and cancel dialog",
+      "then": "record remains and selection unchanged",
+      "tags": ["cancel-branch"]
+    },
+    {
+      "id": "TC-04",
+      "given": "manual transport record",
+      "when": "add or delete",
+      "then": "service selections remain unchanged",
+      "tags": ["source-isolation"]
+    }
+  ],
+  "unknowns": []
+}

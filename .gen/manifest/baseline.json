@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "specHash": "spechash_abc12345",
+  "designContextHash": "designhash_abc12345",
+  "generatorVersion": "gen-0.1.0",
+  "templateVersion": "tpl-1.0.0",
+  "modelVersion": "gpt-5.4",
+  "promptVersion": "prompt-1.0.0",
+  "designMcpVersion": "mcp-0.1.0",
+  "componentMapVersion": "map-0.1.0",
+  "lockfileHash": "lock_abc12345",
+  "outputs": [
+    "specs/pages/order-edit.page-spec.json",
+    "specs/contracts/order-service-transport-sync.contract-spec.json",
+    "specs/evals/order-service-transport-sync.eval-spec.json"
+  ],
+  "outputsHash": "outputs_abc12345",
+  "evalReportRefs": [
+    ".evals/reports/latest.json"
+  ],
+  "skills": [
+    { "name": "intent-to-spec", "version": "0.1.0", "schemaVersion": "1.0.0" },
+    { "name": "figma-to-design-context", "version": "0.1.0", "schemaVersion": "1.0.0" },
+    { "name": "eval-gate", "version": "0.1.0", "schemaVersion": "1.0.0" }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "intentIR": {
+    "intentId": "intent-skill-case-5",
+    "page": "page-5",
+    "actors": ["operator"],
+    "actions": ["open", "save"],
+    "rules": [
+      {
+        "id": "R5",
+        "when": "save.click",
+        "then": "persist data"
+      }
+    ],
+    "states": ["loading", "ready"],
+    "api": {
+      "method": "POST",
+      "endpoint": "/api/case-5"
+    },
+    "unknowns": []
+  },
+  "pageSpec": {
+    "id": "page-5",
+    "route": "/case-5",
+    "datasource": {
+      "api": "GET /api/case-5",
+      "query": ["id"]
+    },
+    "permissions": {
+      "view": "case:view"
+    },
+    "ui": {
+      "type": "form"
+    },
+    "states": ["loading", "ready"],
+    "acceptance": ["renders"],
+    "unknowns": []
+  },
+  "contractSpec": {
+    "featureId": "feature-case-5",
+    "entities": {
+      "record": {
+        "id": "string"
+      }
+    },
+    "transitions": [
+      {
+        "id": "T5",
+        "when": "save.click",
+        "onConfirm": ["save"],
+        "onCancel": ["no-op"],
+        "sourceScope": "SERVICE_INFO"
+      }
+    ],
+    "invariants": ["id unique"],
+    "unknowns": []
+  },
+  "evalSpec": {
+    "scope": "scope-case-5",
+    "commands": ["pnpm spec:validate"],
+    "thresholds": {
+      "maxDiffPixelRatio": 0.003
+    },
+    "blockRules": ["any_failed_command"],
+    "requiredReports": ["manifest"],
+    "testCases": [
+      {
+        "id": "TC-5",
+        "given": "state ready",
+        "when": "run",
+        "then": "pass"
+      }
+    ],
+    "unknowns": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "harness-project",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter \"./apps/*\" dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api start:dev",
+    "build:web": "pnpm --filter web build",
+    "build:api": "pnpm --filter api build",
+    "db:generate": "pnpm --filter api prisma:generate",
+    "db:push": "pnpm --filter api prisma:db:push",
+    "db:migrate:dev": "pnpm --filter api prisma:migrate:dev",
+    "intent:compile": "node tools/intent-compile.mjs",
+    "spec:validate": "node tools/spec-validate.mjs",
+    "design:validate": "node tools/design-validate.mjs",
+    "eval:run": "node tools/eval-run.mjs",
+    "replay:check": "node tools/replay-check.mjs",
+    "skills:smoke": "node tools/skills-smoke.mjs",
+    "ci:gate": "pnpm spec:validate && pnpm design:validate && pnpm skills:smoke && pnpm eval:run && pnpm replay:check"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
+}

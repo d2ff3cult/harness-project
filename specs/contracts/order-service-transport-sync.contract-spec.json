@@ -1,0 +1,56 @@
+{
+  "featureId": "order-service-transport-sync",
+  "entities": {
+    "serviceInfo": {
+      "selectedServices": "set<ServiceType>"
+    },
+    "transportRecord": {
+      "source": "SERVICE_INFO|TRANSPORT_INFO",
+      "placeholder": "boolean"
+    }
+  },
+  "transitions": [
+    {
+      "id": "R1",
+      "when": "order.created",
+      "onConfirm": [
+        "create one placeholder transport record for each selected service"
+      ],
+      "onCancel": ["no-op"],
+      "sourceScope": "SERVICE_INFO"
+    },
+    {
+      "id": "R2",
+      "when": "service_info.save",
+      "if": "deselectedServices not empty",
+      "confirmText": "取消该服务后，系统将在运输信息中删除对应的记录，请确认",
+      "onConfirm": [
+        "delete transport records where source=SERVICE_INFO and serviceType in deselectedServices"
+      ],
+      "onCancel": ["restore service selections"],
+      "sourceScope": "SERVICE_INFO"
+    },
+    {
+      "id": "R3",
+      "when": "transport_info.delete",
+      "if": "record.source==SERVICE_INFO",
+      "confirmText": "删除该行记录，系统将在服务信息中取消对应的服务，请确认",
+      "onConfirm": ["uncheck linked service"],
+      "onCancel": ["cancel delete"],
+      "sourceScope": "SERVICE_INFO"
+    },
+    {
+      "id": "R4",
+      "when": "transport_info.add_or_delete",
+      "if": "record.source==TRANSPORT_INFO",
+      "onConfirm": ["no sync to serviceInfo"],
+      "onCancel": ["no-op"],
+      "sourceScope": "TRANSPORT_INFO"
+    }
+  ],
+  "invariants": [
+    "service-origin records are linked by orderId+serviceType",
+    "manual transport records do not back-propagate to service selections"
+  ],
+  "unknowns": []
+}

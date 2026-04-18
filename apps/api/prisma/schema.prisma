@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model SystemHealthLog {
+  id        Int      @id @default(autoincrement())
+  status    String   @default("ok") @db.VarChar(32)
+  createdAt DateTime @default(now())
+
+  @@map("system_health_log")
+}

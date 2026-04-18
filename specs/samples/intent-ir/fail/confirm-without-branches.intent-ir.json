@@ -1,0 +1,20 @@
+{
+  "intentId": "sample-intent-fail-2",
+  "page": "sample-page",
+  "actors": ["user"],
+  "actions": ["delete"],
+  "rules": [
+    {
+      "id": "R1",
+      "when": "delete.click",
+      "then": "open confirm",
+      "confirmText": "Are you sure?"
+    }
+  ],
+  "states": ["ready"],
+  "api": {
+    "method": "DELETE",
+    "endpoint": "/api/sample/1"
+  },
+  "unknowns": []
+}

@@ -1,0 +1,51 @@
+{
+  "featureId": "golden-order-service-transport-sync",
+  "entities": {
+    "serviceInfo": {
+      "selectedServices": "set<ServiceType>"
+    },
+    "transportInfo": {
+      "records": "array<TransportRecord>"
+    }
+  },
+  "transitions": [
+    {
+      "id": "G-R1",
+      "when": "order.created",
+      "onConfirm": ["create placeholder records for selected services"],
+      "onCancel": ["no-op"],
+      "sourceScope": "SERVICE_INFO"
+    },
+    {
+      "id": "G-R2",
+      "when": "service_info.save",
+      "if": "deselected services exist",
+      "confirmText": "取消该服务后，系统将在运输信息中删除对应的记录，请确认",
+      "onConfirm": ["delete linked service-origin records"],
+      "onCancel": ["revert deselection"],
+      "sourceScope": "SERVICE_INFO"
+    },
+    {
+      "id": "G-R3",
+      "when": "transport_info.delete",
+      "if": "record.source==SERVICE_INFO",
+      "confirmText": "删除该行记录，系统将在服务信息中取消对应的服务，请确认",
+      "onConfirm": ["uncheck linked service"],
+      "onCancel": ["cancel delete"],
+      "sourceScope": "SERVICE_INFO"
+    },
+    {
+      "id": "G-R4",
+      "when": "transport_info.add_or_delete",
+      "if": "record.source==TRANSPORT_INFO",
+      "onConfirm": ["no sync back to service info"],
+      "onCancel": ["no-op"],
+      "sourceScope": "TRANSPORT_INFO"
+    }
+  ],
+  "invariants": [
+    "service-origin and transport-origin records are isolated",
+    "confirm and cancel branches are both explicit"
+  ],
+  "unknowns": []
+}

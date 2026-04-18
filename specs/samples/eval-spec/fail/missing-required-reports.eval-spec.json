@@ -1,0 +1,17 @@
+{
+  "scope": "sample-eval-fail-2",
+  "commands": ["pnpm spec:validate"],
+  "thresholds": {
+    "maxDiffPixelRatio": 0.003
+  },
+  "blockRules": ["any_failed_command"],
+  "testCases": [
+    {
+      "id": "TC-01",
+      "given": "sample",
+      "when": "run",
+      "then": "pass"
+    }
+  ],
+  "unknowns": []
+}
