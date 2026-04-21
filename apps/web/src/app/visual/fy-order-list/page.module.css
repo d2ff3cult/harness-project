@@ -1,0 +1,607 @@
+.viewport {
+  --panel-border: #e5e8ee;
+  --surface: #ffffff;
+  --surface-soft: #f5f6f9;
+  --text-main: #2f3640;
+  --text-sub: #6b7382;
+  --primary: #5a87eb;
+  --sidebar-top: #5f8fe9;
+  --sidebar-bottom: #5886e4;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 252px minmax(0, 1fr);
+  background: #f3f5f8;
+  color: var(--text-main);
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+.sidebar {
+  display: grid;
+  grid-template-rows: 68px 56px minmax(0, 1fr) 44px;
+  background: linear-gradient(180deg, var(--sidebar-top), var(--sidebar-bottom));
+  color: #f7faff;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.logoCluster {
+  display: grid;
+  gap: 2px;
+}
+
+.logoMain {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.logoEmblem {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #ed4850;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.logoMainText {
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.logoSub {
+  font-size: 11px;
+  opacity: 0.92;
+}
+
+.userPortrait {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background:
+    radial-gradient(circle at 70% 28%, rgba(255, 245, 177, 0.85), transparent 42%),
+    radial-gradient(circle at 35% 70%, rgba(38, 87, 181, 0.9), rgba(16, 33, 70, 0.95));
+}
+
+.systemBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.navIcon {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navIconInner {
+  width: 4px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.navRail {
+  padding: 7px 0;
+  overflow-y: auto;
+  display: grid;
+  gap: 2px;
+  align-content: start;
+}
+
+.navButton {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.94);
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 0 16px;
+  cursor: default;
+}
+
+.navLabel {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navGroup {
+  font-size: 14px;
+}
+
+.navItem {
+  padding-left: 34px;
+  font-size: 14px;
+}
+
+.navItemActive {
+  margin: 0 8px;
+  border-radius: 10px;
+  background: rgba(48, 74, 145, 0.34);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.navChevron {
+  margin-left: auto;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.sidebarFooter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footerDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.mainPane {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 42px 40px 136px minmax(0, 1fr);
+}
+
+.topTabs {
+  display: flex;
+  align-items: end;
+  gap: 7px;
+  padding: 0 10px;
+  background: #eef0f4;
+  border-bottom: 1px solid #dfe3ea;
+}
+
+.tab,
+.tabActive {
+  height: 31px;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #d5dae3;
+  border-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 13px;
+  font-size: 13px;
+  color: #60697a;
+  background: #e7eaf0;
+}
+
+.tabActive {
+  background: #ffffff;
+  color: #2e3644;
+}
+
+.topActions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 2px;
+}
+
+.iconButton {
+  width: 30px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid #d2d7df;
+  background: #f8f9fc;
+  color: #707889;
+  line-height: 1;
+  font-size: 13px;
+}
+
+.breadcrumbBar {
+  border-bottom: 1px solid var(--panel-border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+}
+
+.breadcrumbText {
+  font-size: 12px;
+  color: #505869;
+}
+
+.filterPanel {
+  border-bottom: 1px solid var(--panel-border);
+  background: var(--surface);
+  padding: 10px 14px 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.filterActionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primaryButton {
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 12px;
+  color: #ffffff;
+  background: var(--primary);
+  font-size: 14px;
+}
+
+.refreshGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secondaryButton {
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #d7dce6;
+  background: #ffffff;
+  color: #4e5667;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.pageHint {
+  font-size: 12px;
+  color: #707887;
+}
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px 10px;
+}
+
+.field {
+  display: grid;
+  gap: 5px;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  color: #3f4758;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fieldLabel i {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  border-radius: 4px;
+  padding: 0 6px;
+  background: #f1f2f5;
+  color: #737b8b;
+  font-style: normal;
+  font-size: 12px;
+}
+
+.field input {
+  width: 100%;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid #e2e7ef;
+  background: #f8f9fc;
+  padding: 0 10px;
+  color: #9aa2b0;
+}
+
+.selectLike {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.selectLike input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.selectLike span {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #e2e7ef;
+  border-left: 0;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a93a3;
+  background: #f8f9fc;
+  font-size: 12px;
+}
+
+.moreWrap {
+  display: flex;
+  align-items: end;
+}
+
+.tablePanel {
+  position: relative;
+  padding: 2px 8px 8px;
+  background: #f6f7fa;
+  min-height: 0;
+}
+
+.sidebarHandle {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 14px;
+  height: 44px;
+  border-radius: 0 6px 6px 0;
+  background: #d5d8de;
+  color: #8b93a1;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+}
+
+.tableScroll {
+  border: 1px solid #dfe3ea;
+  background: #ffffff;
+  height: 100%;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 1340px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+}
+
+.headerGroupRow th {
+  height: 34px;
+  border-right: 1px solid #e8ebf1;
+  border-bottom: 1px solid #e2e6ee;
+  background: #f8f9fc;
+  color: #646c7b;
+  font-weight: 500;
+  text-align: center;
+}
+
+.table thead tr:last-child {
+  background: #f8f9fc;
+}
+
+.table th {
+  height: 45px;
+  border-right: 1px solid #e8ebf1;
+  border-bottom: 1px solid #e2e6ee;
+  color: #4b5363;
+  text-align: left;
+  font-weight: 500;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.table td {
+  height: 56px;
+  border-right: 1px solid #eceff4;
+  border-bottom: 1px solid #eceff4;
+  color: #2f3640;
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table tbody tr:hover {
+  background: #f8fbff;
+}
+
+.orderLinkCell a {
+  color: #3594f7;
+  text-decoration: underline;
+}
+
+.scopeBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 27px;
+  border-radius: 5px;
+  background: #eceff4;
+  color: #303742;
+  padding: 0 9px;
+}
+
+.statusPending,
+.statusApproved,
+.statusDraft,
+.statusBooking,
+.statusDone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+  height: 27px;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 0 9px;
+}
+
+.statusPending {
+  background: #fdecec;
+  color: #e05454;
+}
+
+.statusApproved {
+  background: #edf0f5;
+  color: #343c49;
+}
+
+.statusDraft {
+  background: #edf0f5;
+  color: #4f5766;
+}
+
+.statusBooking {
+  background: #edf0f5;
+  color: #343c49;
+}
+
+.statusDone {
+  background: #eaf7ef;
+  color: #49a877;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 150px;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 120px;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 110px;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 220px;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 170px;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+  width: 170px;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+  width: 110px;
+}
+
+.table th:nth-child(8),
+.table td:nth-child(8) {
+  width: 110px;
+}
+
+.table th:nth-child(9),
+.table td:nth-child(9) {
+  width: 80px;
+}
+
+.table th:nth-child(10),
+.table td:nth-child(10) {
+  width: 150px;
+}
+
+@media (max-width: 1400px) {
+  .viewport {
+    grid-template-columns: 214px minmax(0, 1fr);
+  }
+
+  .systemBar {
+    font-size: 18px;
+  }
+
+  .navGroup {
+    font-size: 14px;
+  }
+
+  .navItem {
+    font-size: 14px;
+  }
+
+  .table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .filterGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .viewport {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mainPane {
+    grid-template-rows: 40px 38px auto minmax(0, 1fr);
+  }
+
+  .filterGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .topTabs {
+    padding-right: 6px;
+  }
+
+  .tab,
+  .tabActive {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .filterActionRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .filterGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pageHint {
+    white-space: nowrap;
+  }
+}

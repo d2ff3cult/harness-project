@@ -1,0 +1,40 @@
+{
+  "id": "service-transport-order-edit",
+  "description": "Golden case visual regression for service/transport bidirectional linkage on order edit page.",
+  "pageRef": "specs/pages/order-edit.page-spec.json",
+  "routePath": "/visual/service-transport-order-edit",
+  "capture": {
+    "mode": "interaction",
+    "stateActions": {
+      "initial": [],
+      "editing": [
+        { "type": "click", "selector": "[data-testid='control-editing']" },
+        { "type": "waitForTimeout", "ms": 100 }
+      ],
+      "confirm-modal": [
+        { "type": "click", "selector": "[data-testid='control-confirm-modal']" },
+        { "type": "waitForSelector", "selector": "[data-testid='confirm-modal']" }
+      ],
+      "submitted": [
+        { "type": "click", "selector": "[data-testid='control-submitted']" },
+        { "type": "waitForSelector", "selector": "[data-testid='submitted-state']" }
+      ]
+    }
+  },
+  "viewports": [
+    { "name": "desktop", "width": 1440, "height": 900 },
+    { "name": "mobile", "width": 390, "height": 844 }
+  ],
+  "states": [
+    "initial",
+    "editing",
+    "confirm-modal",
+    "submitted"
+  ],
+  "notes": [
+    "Store baseline screenshots under .evals/visual/baseline/<scenarioId>/<viewport>/<state>.png",
+    "Store current screenshots under .evals/visual/current/<scenarioId>/<viewport>/<state>.png",
+    "Use interaction-driven capture with explicit state actions for each screenshot state.",
+    "Gate mode is now expected to run as block after baseline cleanup."
+  ]
+}

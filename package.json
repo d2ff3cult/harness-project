@@ -13,16 +13,30 @@
     "db:push": "pnpm --filter api prisma:db:push",
     "db:migrate:dev": "pnpm --filter api prisma:migrate:dev",
     "intent:compile": "node tools/intent-compile.mjs",
+    "figma:extract": "node tools/figma-extract.mjs",
+    "figma:compile": "node tools/figma-compile.mjs",
+    "figma:smoke": "node tools/figma-compile.mjs --input specs/samples/figma/sample-extract.json --map design/mappings/figma-component-map.json --output .gen/figma/smoke.design-context.json",
     "spec:validate": "node tools/spec-validate.mjs",
     "design:validate": "node tools/design-validate.mjs",
     "eval:run": "node tools/eval-run.mjs",
     "replay:check": "node tools/replay-check.mjs",
+    "review:artifacts": "node tools/review-artifacts-check.mjs",
+    "visual:install-browsers": "pnpm exec playwright install chromium",
+    "visual:capture": "node tools/visual-capture.mjs",
+    "visual:capture:current": "VISUAL_CAPTURE_TARGET=current node tools/visual-capture.mjs",
+    "visual:capture:baseline": "VISUAL_CAPTURE_TARGET=baseline node tools/visual-capture.mjs",
+    "visual:regression": "node tools/visual-regression.mjs",
     "skills:smoke": "node tools/skills-smoke.mjs",
-    "ci:gate": "pnpm spec:validate && pnpm design:validate && pnpm skills:smoke && pnpm eval:run && pnpm replay:check"
+    "ci:gate": "pnpm spec:validate && pnpm design:validate && pnpm figma:smoke && pnpm skills:smoke && pnpm eval:run && pnpm replay:check && pnpm review:artifacts"
   },
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "pixelmatch": "^5.3.0",
+    "playwright": "^1.59.1",
+    "pngjs": "^7.0.0"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }

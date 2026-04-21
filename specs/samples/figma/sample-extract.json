@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "source": "sample-fixture",
+    "fileKey": "sample-file",
+    "nodeIds": [
+      "12:34",
+      "12:35",
+      "12:36"
+    ],
+    "extractedAt": "2026-04-19T00:00:00.000Z"
+  },
+  "nodes": [
+    {
+      "id": "12:34",
+      "name": "Order Service Selector",
+      "type": "COMPONENT",
+      "parentId": null,
+      "childrenIds": []
+    },
+    {
+      "id": "12:35",
+      "name": "Transport Record Table",
+      "type": "FRAME",
+      "parentId": null,
+      "childrenIds": []
+    },
+    {
+      "id": "12:36",
+      "name": "Service Transport Confirm Dialog",
+      "type": "FRAME",
+      "parentId": null,
+      "childrenIds": []
+    }
+  ]
+}

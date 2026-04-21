@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "by": "nodeId",
+      "value": "12:34",
+      "component": "OrderServiceSelector",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.97
+    },
+    {
+      "by": "nodeId",
+      "value": "12:35",
+      "component": "TransportRecordTable",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.95
+    },
+    {
+      "by": "nodeId",
+      "value": "12:36",
+      "component": "ServiceTransportConfirmDialog",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.93
+    }
+  ],
+  "designTokens": [
+    "color.text.primary",
+    "space.16",
+    "radius.md"
+  ],
+  "a11yRequirements": [
+    "dialog has aria-label",
+    "focus order remains stable after state switch"
+  ],
+  "interactionModel": [
+    {
+      "state": "ready",
+      "expectation": "service and transport sections rendered"
+    },
+    {
+      "state": "confirm-dialog-open",
+      "expectation": "confirm dialog is visible and actionable"
+    },
+    {
+      "state": "submitted",
+      "expectation": "submitted banner rendered and dialog hidden"
+    }
+  ],
+  "knownRisks": [
+    "component mapping drift when figma node ids change"
+  ]
+}

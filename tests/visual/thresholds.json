@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "defaultDiffRatio": 0.01,
+  "pixelSensitivity": 0.1,
+  "viewportOverrides": {
+    "mobile": 0.012
+  },
+  "stateOverrides": {
+    "confirm-modal": 0.005,
+    "submitted": 0.005
+  },
+  "scenarioOverrides": {
+    "service-transport-order-edit": {
+      "confirm-modal": 0.004
+    }
+  }
+}

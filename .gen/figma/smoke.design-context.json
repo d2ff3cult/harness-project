@@ -1,0 +1,72 @@
+{
+  "pageId": "smoke",
+  "figmaNodeRefs": [
+    "12:34",
+    "12:35",
+    "12:36"
+  ],
+  "layoutTree": {
+    "type": "Page",
+    "children": [
+      {
+        "type": "COMPONENT",
+        "children": []
+      },
+      {
+        "type": "FRAME",
+        "children": []
+      },
+      {
+        "type": "FRAME",
+        "children": []
+      }
+    ]
+  },
+  "componentMappings": [
+    {
+      "figmaNode": "12:34",
+      "component": "OrderServiceSelector",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.97
+    },
+    {
+      "figmaNode": "12:35",
+      "component": "TransportRecordTable",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.95
+    },
+    {
+      "figmaNode": "12:36",
+      "component": "ServiceTransportConfirmDialog",
+      "source": "DESIGN_SYSTEM",
+      "confidence": 0.93
+    }
+  ],
+  "designTokens": [
+    "color.text.primary",
+    "space.16",
+    "radius.md"
+  ],
+  "a11yRequirements": [
+    "dialog has aria-label",
+    "focus order remains stable after state switch"
+  ],
+  "interactionModel": [
+    {
+      "state": "ready",
+      "expectation": "service and transport sections rendered"
+    },
+    {
+      "state": "confirm-dialog-open",
+      "expectation": "confirm dialog is visible and actionable"
+    },
+    {
+      "state": "submitted",
+      "expectation": "submitted banner rendered and dialog hidden"
+    }
+  ],
+  "knownRisks": [
+    "component mapping drift when figma node ids change"
+  ],
+  "unknowns": []
+}

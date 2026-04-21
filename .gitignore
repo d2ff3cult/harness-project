@@ -7,3 +7,11 @@ coverage
 .env
 .env.*
 !.env.example
+
+# Visual regression run artifacts (ephemeral)
+.evals/visual/current/**
+!.evals/visual/current/.gitkeep
+.evals/visual/diff/**
+!.evals/visual/diff/.gitkeep
+.evals/visual/capture.latest.json
+.evals/visual/latest.json

@@ -18,17 +18,33 @@ Health check:
 
 ## Commands
 1. `pnpm intent:compile`
-2. `pnpm spec:validate`
-3. `pnpm design:validate`
-4. `pnpm skills:smoke`
-5. `pnpm eval:run`
-6. `pnpm replay:check`
-7. `pnpm ci:gate`
+2. `pnpm figma:extract` (requires `FIGMA_TOKEN`, `FIGMA_FILE_KEY`, `FIGMA_NODE_IDS`)
+3. `pnpm figma:compile`
+4. `pnpm figma:smoke`
+5. `pnpm spec:validate`
+6. `pnpm design:validate`
+7. `pnpm skills:smoke`
+8. `pnpm eval:run`
+9. `pnpm replay:check`
+10. `pnpm review:artifacts`
+11. `pnpm visual:install-browsers`
+12. `pnpm visual:capture:current`
+13. `pnpm visual:capture:baseline`
+14. `pnpm visual:regression`
+15. `pnpm ci:gate`
+16. `VISUAL_GATE_MODE=block pnpm visual:regression`
+
+Visual capture defaults:
+1. Uses isolated `http://127.0.0.1:3300`.
+2. Runs `web build` before starting `web start` for deterministic screenshots.
 
 ## Key Directories
 1. `specs/schemas/` - executable schemas for IntentIR/Page/Contract/Eval.
 2. `design/schemas/` - DesignContext schema.
 3. `specs/samples/` - pass/fail and golden samples.
-4. `.agents/skills/` - project private skills.
-5. `tests/skills/` - skill regression cases.
-6. `.gen/manifest/` and `.evals/reports/` - replay and gate artifacts.
+4. `design/mappings/` - figma node to component mapping rules.
+5. `.agents/skills/` - project private skills.
+6. `tests/skills/` - skill regression cases.
+7. `tests/visual/` and `.evals/visual/` - visual regression scenarios and artifacts.
+8. `docs/review/` - change checklist and implementation review records.
+9. `.gen/manifest/` and `.evals/reports/` - replay and gate artifacts.

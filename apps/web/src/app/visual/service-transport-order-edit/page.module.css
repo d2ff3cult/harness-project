@@ -1,0 +1,292 @@
+.shell {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(255, 190, 90, 0.2), transparent 46%),
+    radial-gradient(circle at 10% 70%, rgba(30, 158, 214, 0.16), transparent 50%),
+    #eef4f9;
+  display: grid;
+  place-items: center;
+}
+
+.panel {
+  width: min(1080px, 100%);
+  border: 1px solid #d4e0ed;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 42px rgba(18, 54, 89, 0.12);
+  padding: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.controls {
+  border: 1px dashed #c9d9e8;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f7fbff;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controlsTitle {
+  color: #35546b;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.controlsButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.controlButton {
+  border: 1px solid #c6d8e9;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1b4868;
+  font-size: 12px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.controlButton:hover {
+  background: #e8f3ff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header h1 {
+  color: #10273a;
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.12;
+  margin-bottom: 8px;
+}
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2c6288;
+  margin-bottom: 6px;
+}
+
+.summary {
+  color: #41596d;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+.badgeLive,
+.badgeDone {
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.badgeLive {
+  color: #0c5d90;
+  border-color: #a6d4f0;
+  background: #e8f5ff;
+}
+
+.badgeDone {
+  color: #17603a;
+  border-color: #b8e5cd;
+  background: #eafaf0;
+}
+
+.stateRail {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stateChip,
+.stateChipActive {
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid #c9d9e7;
+  color: #3f5668;
+  background: #f3f8fc;
+}
+
+.stateChipActive {
+  border-color: #a5d0f1;
+  color: #144d73;
+  background: #e7f4ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.card {
+  border: 1px solid #d6e2ef;
+  border-radius: 14px;
+  background: #fbfdff;
+  padding: 18px;
+}
+
+.card h2 {
+  color: #122d42;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.card dl {
+  display: grid;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #d9e7f3;
+}
+
+.row dt {
+  color: #587084;
+}
+
+.row dd {
+  color: #1e3648;
+  text-align: right;
+  font-weight: 600;
+}
+
+.warning,
+.success {
+  border-radius: 12px;
+  border: 1px solid;
+  padding: 14px;
+}
+
+.warning {
+  border-color: #f2dc8f;
+  background: #fff7dd;
+}
+
+.warning h3 {
+  color: #8a5a00;
+  margin-bottom: 4px;
+}
+
+.warning p {
+  color: #6f4d1d;
+}
+
+.success {
+  border-color: #b8e5cd;
+  background: #eafaf0;
+}
+
+.success h3 {
+  color: #1a5f3b;
+  margin-bottom: 4px;
+}
+
+.success p {
+  color: #325d42;
+}
+
+.modalLayer {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 26, 36, 0.45);
+  padding: 24px;
+}
+
+.modal {
+  width: min(520px, 100%);
+  border: 1px solid #c8d9e6;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(9, 22, 34, 0.22);
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.modal h3 {
+  color: #102b3f;
+}
+
+.modal p {
+  color: #4b6376;
+  line-height: 1.5;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.actionGhost,
+.actionPrimary {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid;
+  font-size: 13px;
+}
+
+.actionGhost {
+  color: #4a6273;
+  border-color: #cedde9;
+  background: #f6fbff;
+}
+
+.actionPrimary {
+  color: #ffffff;
+  border-color: #206fa5;
+  background: #1f77b4;
+}
+
+@media (max-width: 860px) {
+  .panel {
+    padding: 18px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row dd {
+    text-align: left;
+  }
+}

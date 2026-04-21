@@ -26,3 +26,12 @@ jobs:
 
       - name: Run gate
         run: pnpm ci:gate
+
+      - name: Install Playwright browser
+        run: pnpm visual:install-browsers
+
+      - name: Capture current screenshots
+        run: pnpm visual:capture:current
+
+      - name: Visual regression (block mode)
+        run: VISUAL_GATE_MODE=block pnpm visual:regression
