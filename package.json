@@ -17,6 +17,7 @@
     "figma:compile": "node tools/figma-compile.mjs",
     "figma:smoke": "node tools/figma-compile.mjs --input specs/samples/figma/sample-extract.json --map design/mappings/figma-component-map.json --output .gen/figma/smoke.design-context.json",
     "spec:validate": "node tools/spec-validate.mjs",
+    "golden:check": "node tools/golden-check.mjs",
     "design:validate": "node tools/design-validate.mjs",
     "eval:run": "node tools/eval-run.mjs",
     "replay:check": "node tools/replay-check.mjs",
@@ -27,7 +28,7 @@
     "visual:capture:baseline": "VISUAL_CAPTURE_TARGET=baseline node tools/visual-capture.mjs",
     "visual:regression": "node tools/visual-regression.mjs",
     "skills:smoke": "node tools/skills-smoke.mjs",
-    "ci:gate": "pnpm spec:validate && pnpm design:validate && pnpm figma:smoke && pnpm skills:smoke && pnpm eval:run && pnpm replay:check && pnpm review:artifacts"
+    "ci:gate": "pnpm spec:validate && pnpm golden:check && pnpm design:validate && pnpm figma:smoke && pnpm skills:smoke && pnpm eval:run && pnpm replay:check && pnpm review:artifacts"
   },
   "dependencies": {
     "ajv": "^8.17.1",

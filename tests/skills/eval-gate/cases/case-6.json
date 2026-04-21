@@ -1,0 +1,25 @@
+{
+  "evalSpec": {
+    "scope": "eval-gate-case-6-cancel-branch",
+    "commands": ["pnpm spec:validate", "pnpm design:validate"],
+    "thresholds": {
+      "maxDiffPixelRatio": 0.003,
+      "unknowns": 0
+    },
+    "blockRules": ["any_failed_command", "unknowns_non_empty"],
+    "requiredReports": ["manifest", "eval-report"],
+    "testCases": [
+      {
+        "id": "E-6",
+        "given": "service deselected and confirm dialog shown",
+        "when": "confirm dialog cancelled",
+        "then": "selection and service-origin records are preserved",
+        "tags": ["cancel-branch-pass", "cancel-branch-fail"]
+      }
+    ],
+    "unknowns": []
+  },
+  "gateConfig": {
+    "strict": true
+  }
+}

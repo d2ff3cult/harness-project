@@ -24,25 +24,43 @@
       "id": "G-TC-01",
       "given": "order created with selected services",
       "when": "save order",
-      "then": "placeholder records auto-created"
+      "then": "placeholder records auto-created",
+      "tags": ["bootstrap-pass"]
     },
     {
       "id": "G-TC-02",
       "given": "service deselected",
       "when": "confirm dialog accepted",
-      "then": "linked service-origin record deleted"
+      "then": "linked service-origin record deleted",
+      "tags": ["confirm-branch-pass"]
     },
     {
       "id": "G-TC-03",
       "given": "service-origin record delete dialog",
       "when": "cancel clicked",
-      "then": "record remains and service stays selected"
+      "then": "record remains and service stays selected",
+      "tags": ["cancel-branch-pass"]
     },
     {
       "id": "G-TC-04",
       "given": "transport-origin record modified",
       "when": "save",
-      "then": "service selections unchanged"
+      "then": "service selections unchanged",
+      "tags": ["source-isolation-pass"]
+    },
+    {
+      "id": "G-TC-05",
+      "given": "service deselected and confirm dialog shown",
+      "when": "confirm dialog cancelled",
+      "then": "linked service-origin records remain and service selection is restored",
+      "tags": ["cancel-branch-fail"]
+    },
+    {
+      "id": "G-TC-06",
+      "given": "transport-origin record add/delete operation",
+      "when": "save succeeds",
+      "then": "service selection is not changed by transport-origin operations",
+      "tags": ["source-isolation-fail"]
     }
   ],
   "unknowns": []

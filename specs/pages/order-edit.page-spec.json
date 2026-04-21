@@ -23,8 +23,10 @@
   "states": ["loading", "ready", "saving", "error"],
   "acceptance": [
     "create_order_generates_placeholder_records",
-    "cancel_service_with_confirm_deletes_linked_records",
-    "delete_service_origin_record_with_confirm_unchecks_service"
+    "confirm_branch_deletes_linked_service_origin_records",
+    "confirm_branch_unchecks_service_from_service_origin_delete",
+    "cancel_branch_keeps_service_selection_and_records",
+    "source_isolation_transport_origin_changes_do_not_sync_back"
   ],
   "unknowns": []
 }

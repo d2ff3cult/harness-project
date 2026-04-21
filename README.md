@@ -22,17 +22,18 @@ Health check:
 3. `pnpm figma:compile`
 4. `pnpm figma:smoke`
 5. `pnpm spec:validate`
-6. `pnpm design:validate`
-7. `pnpm skills:smoke`
-8. `pnpm eval:run`
-9. `pnpm replay:check`
-10. `pnpm review:artifacts`
-11. `pnpm visual:install-browsers`
-12. `pnpm visual:capture:current`
-13. `pnpm visual:capture:baseline`
-14. `pnpm visual:regression`
-15. `pnpm ci:gate`
-16. `VISUAL_GATE_MODE=block pnpm visual:regression` (manual)
+6. `pnpm golden:check`
+7. `pnpm design:validate`
+8. `pnpm skills:smoke`
+9. `pnpm eval:run`
+10. `pnpm replay:check`
+11. `pnpm review:artifacts`
+12. `pnpm visual:install-browsers`
+13. `pnpm visual:capture:current`
+14. `pnpm visual:capture:baseline`
+15. `pnpm visual:regression`
+16. `pnpm ci:gate`
+17. `VISUAL_GATE_MODE=block pnpm visual:regression` (manual)
 
 Visual capture defaults:
 1. Uses isolated `http://127.0.0.1:3300`.
