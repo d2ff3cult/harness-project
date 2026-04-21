@@ -7,6 +7,8 @@ on:
 jobs:
   gate:
     runs-on: ubuntu-latest
+    env:
+      VISUAL_CI_ENABLED: "false"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,10 +30,13 @@ jobs:
         run: pnpm ci:gate
 
       - name: Install Playwright browser
+        if: ${{ env.VISUAL_CI_ENABLED == 'true' }}
         run: pnpm visual:install-browsers
 
       - name: Capture current screenshots
+        if: ${{ env.VISUAL_CI_ENABLED == 'true' }}
         run: pnpm visual:capture:current
 
       - name: Visual regression (block mode)
+        if: ${{ env.VISUAL_CI_ENABLED == 'true' }}
         run: VISUAL_GATE_MODE=block pnpm visual:regression

@@ -32,11 +32,15 @@ Health check:
 13. `pnpm visual:capture:baseline`
 14. `pnpm visual:regression`
 15. `pnpm ci:gate`
-16. `VISUAL_GATE_MODE=block pnpm visual:regression`
+16. `VISUAL_GATE_MODE=block pnpm visual:regression` (manual)
 
 Visual capture defaults:
 1. Uses isolated `http://127.0.0.1:3300`.
 2. Runs `web build` before starting `web start` for deterministic screenshots.
+
+CI defaults:
+1. `pnpm ci:gate` remains blocking in CI.
+2. Visual capture/regression steps are currently disabled in CI by default and are run manually when needed.
 
 ## Key Directories
 1. `specs/schemas/` - executable schemas for IntentIR/Page/Contract/Eval.

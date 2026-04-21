@@ -146,3 +146,10 @@ CI 门禁：
 1. 已补齐可执行命令：`figma:extract`、`figma:compile`、`figma:smoke`。
 2. `figma:smoke` 已纳入 `ci:gate`，用于持续验证 “提取产物 -> DesignContextSpec” 编译链路。
 3. 组件映射缺失默认阻断，并输出结构化错误（`DESIGN_CONTEXT_BLOCKED`）。
+
+## 12. 视觉门禁临时状态（2026-04-21）
+1. 按当前迭代决策，CI 默认暂停视觉步骤执行（`VISUAL_CI_ENABLED=false`）。
+2. 视觉脚本、基线与场景仍保留，可按需手动执行：
+   - `pnpm visual:capture:current`
+   - `pnpm visual:regression`
+3. 需要恢复 CI 阻断时，仅需将 workflow 中 `VISUAL_CI_ENABLED` 改回 `true`。
